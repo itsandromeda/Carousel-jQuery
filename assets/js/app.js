@@ -83,4 +83,34 @@ $(() => {
         way.addClass('fa-circle').removeClass('fa-circle-o');
         active.removeClass('fa-circle').addClass('fa-circle-o');
     }
+
+    pointer.on('click', function () {
+        var clicker = parseInt($(this).attr('data-slide-to')),
+            step = clicker - currSlide,
+            i;
+
+        if (step === 0) {
+            return false;
+        } else if (step > 0) {
+            for (i = 0; i < step; i += 1) {
+                pointerSlideNext();
+            }
+        } else {
+            for (i = 0; i < Math.abs(step); i += 1) {
+                slidePrev(0);
+            }
+        }
+    });
+
+    function pointerSlideNext() {
+        if (currSlide === 4) {
+            currSlide = 0;
+        } else {
+            currSlide += 1;
+        }
+        carouselList.animate({
+            'marginLeft': -800
+        }, 0, moveFirstSlide);
+        moveIndicator(true);
+    };
 });
