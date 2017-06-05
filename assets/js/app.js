@@ -2,7 +2,8 @@
 
 $(() => {
     var carouselList = $("#images ul"),
-        currSlide = 0;
+        currSlide = 0,
+        pointer = $('.controls i');
 
     setInterval(slideNext, 5000);
 
@@ -23,6 +24,7 @@ $(() => {
         carouselList.animate({
             'marginLeft': -800
         }, 500, moveFirstSlide);
+        moveIndicator(true);
     }
 
     function slidePrev() {
@@ -35,6 +37,7 @@ $(() => {
         carouselList.animate({
             'marginLeft': 0
         }, 500);
+        moveIndicator(false);
     }
 
     function getFirstItem() {
@@ -57,5 +60,27 @@ $(() => {
         carouselList.css({
             marginLeft: -800
         });
+    }
+
+    function moveIndicator(direction) {
+        var active = $('.controls .fa-circle'),
+            way,
+            which;
+        if (direction) {
+            way = active.next();
+        } else {
+            way = active.prev();
+        }
+        if (direction) {
+            which = "first";
+        } else {
+            which = "last";
+        }
+        if (way.length === 0) {
+            way = $('.controls i')[which]();
+        }
+
+        way.addClass('fa-circle').removeClass('fa-circle-o');
+        active.removeClass('fa-circle').addClass('fa-circle-o');
     }
 });
