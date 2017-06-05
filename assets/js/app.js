@@ -112,5 +112,5 @@ $(() => {
             'marginLeft': -800
         }, 0, moveFirstSlide);
         moveIndicator(true);
-    };
+    }
 });
