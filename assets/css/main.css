@@ -56,14 +56,42 @@
 }
 
 .buttons i {
-    background-color: #ccc;
+    background-color: #999;
     font-size: 1.5em;
     color: #fff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.buttons i:hover {
+    background-color: #666;
+}
+
+
+/*
+    ===========
+    CONTROLS
+    ===========
+*/
+
+.controls {
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -5em;
+    width: 800px;
+    height: 100px;
+}
+
+.controls i {
+    padding: 0.3em;
     cursor: pointer;
 }
